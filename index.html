@@ -11,20 +11,19 @@
 
 <body>
     <header>
-        <h1>Welcome to Full-Screen Fúbol Fan</h1>
+        <h1>Welcome to Full-Screen Fútbol Fan</h1>
     </header>
     <div class="match-up-container">
         <div class="home-team-container">
-            <div class="home-team-logo"></div>
-            <img class="home-team-pic" src="assets/team-logo-one.jpg">
+            <h2>Home:</h2>
+            <img id="home-team-logo" class="pic" src="assets/team-logo-one.jpg">
+            <h3 id="home-team-name"></h2>
         </div>
-        <h2>Home Team Stand-In</h2>
-    </div>
-    <div class="away-team-container">
-        <div class="away-team-logo"></div>
-        <img class="away-team-pic pic" src="assets/team-logo-two.jpg">
-        <h2>Away Team Stand-In</h2>
-    </div>
+        <div class="away-team-container">
+            <h2>Away:</h2>
+            <img id="away-team-logo" class="pic" src="assets/team-logo-two.jpg">
+            <h3 id="away-team-name"></h2>
+        </div>
     </div>
     <aside class="vh-100">
         <nav>
@@ -42,10 +41,10 @@
         </nav>
     </aside>
     <div class="location-container">
-        <img class="stadium-pic pic" src="assets/stadiuim-pic1.jpg">
+        <img id="stadium-pic" class="pic" src="assets/stadiuim-pic1.jpg">
         <div class="stadium-info">
-            <h2 class="stadium-name">Stadium Name</h2>
-            <h3 class="stadium-location">Location, Country</h3>
+            <h2 id="stadium-name">Stadium Name</h2>
+            <h3 id="stadium-location">Location, Country</h3>
             <h4 class="stadium-weather">68 deg. 5mph winds</h4>
             <div class="weather-visual">
             </div>

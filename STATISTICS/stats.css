@@ -1,0 +1,32 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+caption {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+thead {
+  background-color: #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}

@@ -9,6 +9,26 @@ const stadiumPic = document.querySelector("#stadium-pic");
 const stadiumName = document.querySelector("#stadium-name");
 const stadiumLocation = document.querySelector("#stadium-location");
 
+// Selectors for key players
+const homeLGName = document.querySelector("#home-lg-name");
+const homeLGPOS = document.querySelector("#home-lg-pos");
+const homeLGStat = document.querySelector("#home-lg-stat");
+const homeLAName = document.querySelector("#home-la-name");
+const homeLAPOS = document.querySelector("#home-la-pos");
+const homeLAStat = document.querySelector("#home-la-stat");
+const homeGKName = document.querySelector("#home-gk-name");
+const homeGKPOS = document.querySelector("#home-gk-pos");
+const homeGKStat = document.querySelector("#home-gk-stat");
+const awayLGName = document.querySelector("#away-lg-name");
+const awayLGPOS = document.querySelector("#away-lg-pos");
+const awayLGStat = document.querySelector("#away-lg-stat");
+const awayLAName = document.querySelector("#away-la-name");
+const awayLAPOS = document.querySelector("#away-la-pos");
+const awayLAStat = document.querySelector("#away-la-stat");
+const awayGKName = document.querySelector("#away-gk-name");
+const awayGKPOS = document.querySelector("#away-gk-pos");
+const awayGKStat = document.querySelector("#away-gk-stat");
+
 let matchLocation = {
     latitude: "",
     longitude: ""
@@ -47,6 +67,107 @@ const setWeatherDisplay = function(cityName, matchDate) {
         .then(function () {
             weatherRequest(matchDate);
         });
+}
+
+const displayKeyPlayers = function(teamID, homeOrAway, season) {
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '3b05f88e7amsh439ba845456b31bp1767c4jsn41bc2d52d800',
+            'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+        }
+    };
+    
+    fetch(`https://api-football-v1.p.rapidapi.com/v3/players?team=${teamID}&season=${season}`, options)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+
+            const playerList = data.response;
+
+            let maxGoals = 0;
+            let maxAssists = 0;
+
+            let leadGoal = {
+                playerName: "",
+                position: "",
+                goals: ""
+            }
+
+            let leadAssists = {
+                playerName: "",
+                position: "",
+                assists: ""
+            }
+
+            let goalkeeper = {
+                playerName: "",
+                position: "Goalkeeper",
+                saves: ""
+            }
+
+            for(let i = 0; i < playerList.length; i++) {
+                const playerInfo = playerList[i].player;
+                const playerStats = playerList[i].statistics[0];
+
+                if (playerStats.games.position == "Goalkeeper") {
+                    goalkeeper.playerName = `${playerInfo.firstname} ${playerInfo.lastname}`;
+                    goalkeeper.saves = playerStats.goals.saves;
+                }
+                if (playerStats.goals.total > maxGoals) {
+                    leadGoal.playerName = `${playerInfo.firstname} ${playerInfo.lastname}`;
+                    leadGoal.position = playerStats.games.position;
+                    leadGoal.goals = playerStats.goals.total;
+                }
+                if (playerStats.goals.assists > maxAssists) {
+                    leadAssists.playerName = `${playerInfo.firstname} ${playerInfo.lastname}`;
+                    leadAssists.position = playerStats.games.position;
+                    leadAssists.assists = playerStats.goals.assists;
+                }
+            }
+
+            // Following if statements update key player stats and handles possible null values
+            if (leadGoal.playerName === null) {
+                document.querySelector(`#${homeOrAway}-lg-name`).textContent = "N/A";
+            } else {
+                document.querySelector(`#${homeOrAway}-lg-name`).textContent = leadGoal.playerName;
+                document.querySelector(`#${homeOrAway}-lg-pos`).textContent = leadGoal.position;
+            }
+
+            if (leadGoal.goals === null) {
+                document.querySelector(`#${homeOrAway}-lg-stat`).textContent = 0;
+            } else {
+                document.querySelector(`#${homeOrAway}-lg-stat`).textContent = leadGoal.goals;
+            }
+
+            if (leadAssists.playerName === null) {
+                document.querySelector(`#${homeOrAway}-la-name`).textContent = "N/A";
+            } else {
+                document.querySelector(`#${homeOrAway}-la-name`).textContent = leadAssists.playerName;
+                document.querySelector(`#${homeOrAway}-la-pos`).textContent = leadAssists.position;
+            }
+
+            if (leadAssists.assists === null) {
+                document.querySelector(`#${homeOrAway}-la-stat`).textContent = 0;
+            } else {
+                document.querySelector(`#${homeOrAway}-la-stat`).textContent = leadAssists.assists;
+            }
+
+            if (goalkeeper.playerName === null) {
+                document.querySelector(`#${homeOrAway}-gk-name`).textContent = "N/A";
+            } else {
+                document.querySelector(`#${homeOrAway}-gk-name`).textContent = goalkeeper.playerName;
+                document.querySelector(`#${homeOrAway}-gk-pos`).textContent = goalkeeper.position;
+            }
+
+            if (goalkeeper.saves === null) {
+                document.querySelector(`#${homeOrAway}-gk-stat`).textContent = 0;
+            } else {
+                document.querySelector(`#${homeOrAway}-gk-stat`).textContent = goalkeeper.saves;
+            }
+        })
+        .catch(err => console.error(err));   
 }
 
 const getStadiumInfo = function(venueName) {
@@ -88,8 +209,6 @@ const getUpcomingMatch = function() {
             return response.json();
         })
         .then(function (data) {
-            // debug
-            console.log(data);
 
             const teamData = data.response[0].teams;
 
@@ -111,6 +230,14 @@ const getUpcomingMatch = function() {
             const matchDate = data.response[0].fixture.date.slice(0, 10);
 
             setWeatherDisplay(cityName, matchDate);
+
+            // gather team IDs for displayKeyPlayers function
+            const homeID = teamData.home.id;
+            const awayID = teamData.away.id;
+            const season = data.response[0].league.season;
+
+            displayKeyPlayers(homeID, "home", season);
+            displayKeyPlayers(awayID, "away", season);
         })
         .catch(err => console.error(err));
 }

@@ -2,7 +2,7 @@ const API_KEY = '3b05f88e7amsh439ba845456b31bp1767c4jsn41bc2d52d800';
 const BASE_URL = 'https://api-football-beta.p.rapidapi.com/v3';
 
 // function to fetch data from the API
-async function fetchData(path) {
+function fetchData(path) {
   const response = await fetch(`${BASE_URL}${path}`, {
     method: 'GET',
     headers: {
@@ -38,7 +38,7 @@ function displayData(data, tableId) {
 }
 
 // function to get and display goals leaders
-async function getGoalsLeaders() {
+function getGoalsLeaders() {
   try {
     const data = await fetchData('/statistics/players?league=253&season=2023&sort=goals');
     displayData(data, 'goals');
@@ -48,7 +48,7 @@ async function getGoalsLeaders() {
 }
 
 // function to get and display assists leaders
-async function getAssistsLeaders() {
+function getAssistsLeaders() {
   try {
     const data = await fetchData('/statistics/players?league=253&season=2023&sort=assists');
     displayData(data, 'assists');
@@ -58,7 +58,7 @@ async function getAssistsLeaders() {
 }
 
 // function to get and display shutouts leaders
-async function getShutoutsLeaders() {
+function getShutoutsLeaders() {
   try {
     const data = await fetchData('/statistics/players?league=253&season=2023&sort=shutouts');
     displayData(data, 'shutouts');

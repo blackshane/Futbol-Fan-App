@@ -9,26 +9,6 @@ const stadiumPic = document.querySelector("#stadium-pic");
 const stadiumName = document.querySelector("#stadium-name");
 const stadiumLocation = document.querySelector("#stadium-location");
 
-// Selectors for key players
-const homeLGName = document.querySelector("#home-lg-name");
-const homeLGPOS = document.querySelector("#home-lg-pos");
-const homeLGStat = document.querySelector("#home-lg-stat");
-const homeLAName = document.querySelector("#home-la-name");
-const homeLAPOS = document.querySelector("#home-la-pos");
-const homeLAStat = document.querySelector("#home-la-stat");
-const homeGKName = document.querySelector("#home-gk-name");
-const homeGKPOS = document.querySelector("#home-gk-pos");
-const homeGKStat = document.querySelector("#home-gk-stat");
-const awayLGName = document.querySelector("#away-lg-name");
-const awayLGPOS = document.querySelector("#away-lg-pos");
-const awayLGStat = document.querySelector("#away-lg-stat");
-const awayLAName = document.querySelector("#away-la-name");
-const awayLAPOS = document.querySelector("#away-la-pos");
-const awayLAStat = document.querySelector("#away-la-stat");
-const awayGKName = document.querySelector("#away-gk-name");
-const awayGKPOS = document.querySelector("#away-gk-pos");
-const awayGKStat = document.querySelector("#away-gk-stat");
-
 let matchLocation = {
     latitude: "",
     longitude: ""

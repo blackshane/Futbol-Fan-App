@@ -1,0 +1,34 @@
+body {
+  background-color: rgb(198, 239, 255);
+}
+
+h2 {
+  color: darkslategray;
+}
+
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  box-sizing: border-box;
+  color: darkred;
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  color: darkslategray;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid darkred;
+}
+
+th {
+  background-color: #f2f2f2;
+  color: darkred;
+}

@@ -1,29 +1,15 @@
 const viewInfoBtns = document.querySelectorAll(".view-info-btn");
 
-// debug
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '3b05f88e7amsh439ba845456b31bp1767c4jsn41bc2d52d800',
-		'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
-	}
-};
-
-// debug
-fetch('https://api-football-v1.p.rapidapi.com/v3/teams?league=253&season=2023', options)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));
-
-let selectedTeamID = "";
-
+// Code to run on page load
 const initializePage = function() {
+    // Adds click listeners to each team's info button
     for (const button of viewInfoBtns) {
         button.addEventListener("click", function() {
+            // Saves team id number to local storage for team-info.js to access
+            localStorage.setItem("teamID", button.getAttribute("value"));
+            // Changes file location to boilerplate team-info page
+            // Using team-info.js, it is populated with the team's stats and player roster
             location.assign("./team-info.html");
-            selectedTeamID = button.getAttribute("value");
-
-            localStorage.setItem("teamID", selectedTeamID);
         });
     }
 }

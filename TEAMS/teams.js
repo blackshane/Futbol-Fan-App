@@ -1,3 +1,4 @@
+const viewInfoBtns = document.querySelectorAll(".view-info-btn");
 
 // debug
 const options = {
@@ -9,7 +10,22 @@ const options = {
 };
 
 // debug
-fetch('https://api-football-v1.p.rapidapi.com/v3/leagues?id=253', options)
+fetch('https://api-football-v1.p.rapidapi.com/v3/teams?league=253&season=2023', options)
 	.then(response => response.json())
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
+
+let selectedTeamID = "";
+
+const initializePage = function() {
+    for (const button of viewInfoBtns) {
+        button.addEventListener("click", function() {
+            location.assign("./team-info.html");
+            selectedTeamID = button.getAttribute("value");
+
+            localStorage.setItem("teamID", selectedTeamID);
+        });
+    }
+}
+
+initializePage();

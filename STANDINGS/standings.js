@@ -14,13 +14,17 @@ fetch(api_url, {
     const easternStandings = data.response[0].league.standings[0].map(team => ({
       position: team.rank,
       name: team.team.name,
-      points: team.points
+      points: team.points,
+      // ID for links to team pages
+      id: team.team.id,
     }));
     
     const westernStandings = data.response[0].league.standings[1].map(team => ({
       position: team.rank,
       name: team.team.name,
       points: team.points,
+      // ID for links to team pages
+      id: team.team.id,
     }));
     
     // Populate the Eastern Conference standings table
@@ -33,7 +37,19 @@ fetch(api_url, {
       position.innerHTML = team.position;
       name.innerHTML = team.name;
       points.innerHTML = team.points;
+      // adds data value equal to the team's ID
+      name.setAttribute("data-id", team.id);
+      // Adds class to change cursor
+      name.classList.add("pointer-cursor");
 
+      // Clicking on team names takes user to the team page
+      name.addEventListener("click", function() {
+        // Saves team id number to local storage for team-info.js to access
+        localStorage.setItem("teamID", name.getAttribute("data-id"));
+        // Changes file location to boilerplate team-info page
+        // Using team-info.js, it is populated with the team's stats and player roster
+        location.assign("../TEAMS/team-info.html");
+      });
     });
     
     // Populate the Western Conference standings table
@@ -46,6 +62,19 @@ fetch(api_url, {
       position.innerHTML = team.position;
       name.innerHTML = team.name;
       points.innerHTML = team.points;
+      // adds data value equal to the team's ID
+      name.setAttribute("data-id", team.id);
+      // Adds class to change cursor
+      name.classList.add("pointer-cursor");
+
+      // Clicking on team names takes user to the team page
+      name.addEventListener("click", function() {
+        // Saves team id number to local storage for team-info.js to access
+        localStorage.setItem("teamID", name.getAttribute("data-id"));
+        // Changes file location to boilerplate team-info page
+        // Using team-info.js, it is populated with the team's stats and player roster
+        location.assign("../TEAMS/team-info.html");
+      });
     });
   })
   .catch(error => {

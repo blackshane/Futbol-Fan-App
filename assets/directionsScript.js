@@ -56,7 +56,6 @@ function initMap(latitude, longitude) {
     Stadium('America First Field SLC', 40.5699467494479, -111.8927205244),
   )
   
-
   const stadiumListEl = document.getElementById('stadiumList')
 
   function loadStadiumList() {
@@ -74,10 +73,10 @@ function initMap(latitude, longitude) {
       return
     }
     
-    // e.target IS stadium
-    renderMap(e.target);
+  
     let stadium = stadiums[stadiumIndex]
     initMap(stadium.latitude, stadium.longitude)
+    
   }
 
 

@@ -33,7 +33,7 @@ function initMap(latitude, longitude) {
     Stadium('Saputo Stadium MON', 45.562295, -73.553032),
     Stadium('Red Bull Arena NYC', 40.736844, -74.150236),
     Stadium('Subaru Park PIL', 39.83281, -75.37848),
-    Stadium('PayPal Park SJ', 37.335480, 121.893028),
+    Stadium('PayPal Park SJ', 37.335480, -121.893028),
     Stadium('BMO Park LA', 34.012605, -118.284559),
     Stadium('BMO Field TOR', 43.633223, -79.418562),
     Stadium('Q2 Stadium AUS', 30.387718 , -97.719353 ),

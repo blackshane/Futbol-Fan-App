@@ -1,0 +1,43 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+th {
+  background-color: #ddd;
+  font-weight: bold;
+  padding: 10px;
+  text-align: left;
+}
+
+td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+/* Specific Styles for Each Table */
+#goals-leaders th {
+  background-color: #ff9933;
+  color: #fff;
+}
+
+#assists-leaders th {
+  background-color: #009933;
+  color: #fff;
+}
+
+#red-card-leaders th {
+  background-color: #cc0000;
+  color: #fff;
+}

@@ -1,0 +1,37 @@
+body {
+    background-color: rgb(198, 239, 255);
+  }
+  
+  h2 {
+    color: darkslategray;
+  }
+#map {
+    height: 400px;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+#stadiumList {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: large;
+    text-align: center;
+   
+  
+}
+
+#stadiumList div {
+    border-style: solid;
+    background-color: white ;
+    
+    font-weight: bold;
+    border-radius: 25px;
+    margin-left: 37%;
+    margin-top: 5px;
+   max-width: 25%;
+   justify-content: center;
+   align-items: center;
+
+}

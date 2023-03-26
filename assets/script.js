@@ -8,10 +8,22 @@ const awayName = document.querySelector("#away-team-name");
 const stadiumPic = document.querySelector("#stadium-pic");
 const stadiumName = document.querySelector("#stadium-name");
 const stadiumLocation = document.querySelector("#stadium-location");
+const dateDisplay = document.querySelector("#date-display");
+const leagueMatchBtn = document.querySelector("#league-match-btn");
+const faveMatchBtn = document.querySelector("#fave-match-btn");
 
 let matchLocation = {
     latitude: "",
     longitude: ""
+};
+
+// Options for API football fetch requests to use
+const options = {
+    method: 'GET',
+    headers: {
+        'X-RapidAPI-Key': '3b05f88e7amsh439ba845456b31bp1767c4jsn41bc2d52d800',
+        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+    }
 };
 
 // matchDate must be string in format yyyy-mm-dd
@@ -50,14 +62,6 @@ const setWeatherDisplay = function(cityName, matchDate) {
 }
 
 const displayKeyPlayers = function(teamID, homeOrAway, season) {
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '3b05f88e7amsh439ba845456b31bp1767c4jsn41bc2d52d800',
-            'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
-        }
-    };
-    
     fetch(`https://api-football-v1.p.rapidapi.com/v3/players?team=${teamID}&season=${season}`, options)
         .then(function (response) {
             return response.json();
@@ -151,14 +155,6 @@ const displayKeyPlayers = function(teamID, homeOrAway, season) {
 }
 
 const getStadiumInfo = function(venueName) {
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '3b05f88e7amsh439ba845456b31bp1767c4jsn41bc2d52d800',
-            'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
-        }
-    };
-
     // Sets stadium name, stadium picture, and location
     fetch(`https://api-football-v1.p.rapidapi.com/v3/venues?name=${venueName}`, options)
         .then(function (response) {
@@ -174,22 +170,13 @@ const getStadiumInfo = function(venueName) {
         .catch(err => console.error(err));
 }
 
-const getUpcomingMatch = function() {
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '3b05f88e7amsh439ba845456b31bp1767c4jsn41bc2d52d800',
-            'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
-        }
-    };
-
+const getUpcomingMatch = function(URL) {
     // Sets name and logo for home and away teams
-    fetch(`https://api-football-v1.p.rapidapi.com/v3/fixtures?league=253&next=1`, options)
+    fetch(URL, options)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
-
             const teamData = data.response[0].teams;
 
             homeLogo.setAttribute("src", teamData.home.logo);
@@ -209,6 +196,9 @@ const getUpcomingMatch = function() {
             const cityName = splitCityName[0];
             const matchDate = data.response[0].fixture.date.slice(0, 10);
 
+            // Displays date of match on index.html
+            dateDisplay.textContent = matchDate;
+
             setWeatherDisplay(cityName, matchDate);
 
             // gather team IDs for displayKeyPlayers function
@@ -222,4 +212,47 @@ const getUpcomingMatch = function() {
         .catch(err => console.error(err));
 }
 
-getUpcomingMatch();
+// Code to run when the page loads
+const initializePage = function() {
+    // If there is a favorited team, their next upcoming match will be displayed.
+    // If there is not one, then the next match in the whole league will be displayed.
+    if (localStorage.getItem("faveID")) {
+        getUpcomingMatch(`https://api-football-v1.p.rapidapi.com/v3/fixtures?team=${localStorage.getItem("faveID")}&next=1`);
+
+        faveMatchBtn.disabled = true;
+        faveMatchBtn.classList.add("disabled");
+    } else {
+        getUpcomingMatch("https://api-football-v1.p.rapidapi.com/v3/fixtures?league=253&next=1");
+
+        leagueMatchBtn.disabled = true;
+        leagueMatchBtn.classList.add("disabled");
+
+        // If there is no favorite team, then the fave team button will remain disabled
+        faveMatchBtn.disabled = true;
+        faveMatchBtn.classList.add("disabled");
+    }
+
+    // Clicking "Next Favorite Team Match" displays the next team match and switches the buttons
+    faveMatchBtn.addEventListener("click", function() {
+        getUpcomingMatch(`https://api-football-v1.p.rapidapi.com/v3/fixtures?team=${localStorage.getItem("faveID")}&next=1`);
+
+        faveMatchBtn.disabled = true;
+        faveMatchBtn.classList.add("disabled");
+
+        leagueMatchBtn.disabled = false;
+        leagueMatchBtn.classList.remove("disabled");
+    });
+
+    // Clicking "Next League Match" displays the next league match and switches the buttons
+    leagueMatchBtn.addEventListener("click", function() {
+        getUpcomingMatch("https://api-football-v1.p.rapidapi.com/v3/fixtures?league=253&next=1");
+
+        leagueMatchBtn.disabled = true;
+        leagueMatchBtn.classList.add("disabled");
+
+        faveMatchBtn.disabled = false;
+        faveMatchBtn.classList.remove("disabled");
+    });
+}
+
+initializePage();

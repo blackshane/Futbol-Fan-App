@@ -6,41 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Directions</title>
-  <link rel="stylesheet" href="assets/CSS/directionsStyle.css"> 
-
+    <link rel="stylesheet" href="../assets/page-structure.css"/>
+    <link rel="stylesheet" href="./assets/CSS/directionsStyle.css"> 
 </head>
 
 <body>
-  <aside class="vh-100">
-    <nav>
-        <ul>
-            <li>
-                <a href="../index.html">Home</a>
-            </li>
-            <li>
-                <a href="../TEAMS/teams.html">Teams</a>
-            </li>
-            <li>
-                <a href="../STATISTICS/leagueleaders.html">League Leaders</a>
-            </li>
-            <li>
-                <a href="../STANDINGS/standings.html">Standings</a>
-            </li>
-        </ul>
-    </nav>
-  </aside>
-    <div id="map"><h2>Click on a Stadium to See its Location!</h2> </div>
+    <aside class="vh-100">
+        <nav>
+            <ul>
+                <li>
+                    <a href="../index.html">Home</a>
+                </li>
+                <li>
+                    <a href="../TEAMS/teams.html">Teams</a>
+                </li>
+                <li>
+                    <a href="../STATISTICS/leagueleaders.html">League Leaders</a>
+                </li>
+                <li>
+                    <a href="../STANDINGS/standings.html">Standings</a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <main>
+        <div id="map"><h2>Click on a Stadium to See its Location!</h2> </div>
 
-    <div id="stadiumList" style="padding: 20px">
-       
-    </div>
+        <div id="stadiumList" style="padding: 20px">
+        
+        </div>
 
-    <script src="directionsScript.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBx77a-IKT_sCS4_N3y5o3-GRxpMZyIIME&v=weekly"
-        defer></script>
+        <script src="directionsScript.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBx77a-IKT_sCS4_N3y5o3-GRxpMZyIIME&v=weekly"
+            defer></script>
+    </main>
 </body>
 
 </html>

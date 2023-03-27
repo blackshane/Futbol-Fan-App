@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <title>Major League Soccer Standings</title>
     <meta name="MLS Standings" content="Standings in MLS">
-    <link rel="stylesheet" href="standings.css">
+    <link rel="stylesheet" href="../assets/page-structure.css"/>
+    <link rel="stylesheet" href="./standings.css">
   </head>
   <body>
     <aside class="vh-100">
@@ -24,38 +25,39 @@
               </li>
           </ul>
       </nav>
-  </aside>
-
-    <div class="column">
-      <h2>Western Conference</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Rank</th>
-            <th>Team</th>
-            <th>Points</th>
-          </tr>
-        </thead>
-        <tbody id="western-standings">
-          <!-- This is where the Western Conference standings will be inserted -->
-        </tbody>
-      </table>
-    </div>
-    <div class="column">
-      <h2>Eastern Conference</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Rank</th>
-            <th>Team</th>
-            <th>Points</th>
-          </tr>
-        </thead>
-        <tbody id="eastern-standings">
-          <!-- This is where the Eastern Conference standings will be inserted -->
-        </tbody>
-      </table>
-    </div>
+    </aside>
+    <main>
+      <div class="column">
+        <h2>Western Conference</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Team</th>
+              <th>Points</th>
+            </tr>
+          </thead>
+          <tbody id="western-standings">
+            <!-- This is where the Western Conference standings will be inserted -->
+          </tbody>
+        </table>
+      </div>
+      <div class="column">
+        <h2>Eastern Conference</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Team</th>
+              <th>Points</th>
+            </tr>
+          </thead>
+          <tbody id="eastern-standings">
+            <!-- This is where the Eastern Conference standings will be inserted -->
+          </tbody>
+        </table>
+      </div>
+    </main>
     <script src="standings.js"></script>
   </body>
 </html>

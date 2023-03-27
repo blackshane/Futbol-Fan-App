@@ -24,6 +24,7 @@ h2 {
 #stadiumList div {
   border-style: solid;
   background-color: white;
+  cursor: pointer;
   font-weight: bold;
   border-radius: 25px;
   margin-left: 37%;

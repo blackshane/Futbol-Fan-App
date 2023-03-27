@@ -22,7 +22,7 @@ h1 {
 
 .favorite-btn {
 	padding: 5px;
-	background-color: #4CAF50;
+	background-color: rgb(11, 82, 113);
 	border: none;
 	color: white;
 	text-align: center;
@@ -33,23 +33,22 @@ h1 {
 }
 
 .favorite-btn:hover {
-	background-color: #3e8e41;
+	background-color: rgb(76, 136, 162);
 }
 
 .view-info-btn {
     padding: 5px;
-	background-color: #4CAF50;
+	background-color: rgb(11, 82, 113);
 	border: none;
 	color: white;
 	text-align: center;
 	font-size: 16px;
 	cursor: pointer;
-	border-radius: 5px;
-     
+	border-radius: 5px; 
 }
 
 .view-info-btn:hover {
-	background-color: #3e8e41;
+	background-color: rgb(76, 136, 162);
 }
 
 .favorited {
@@ -58,4 +57,51 @@ h1 {
 
 .favorited:hover {
 	background-color: #a39622;
+}
+
+#logo-table-container {
+	display: flex;
+}
+
+#team-logo {
+	height: 300px;
+	width: 300px;
+	object-fit: cover;
+	margin: 50px;
+}
+
+table {
+	border-collapse: collapse;
+	text-align: center;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+/* tbody tr:nth-child(odd) {
+	background-color: rgb(5, 59, 83);
+	color: white;
+}
+
+tbody tr:nth-child(even) {
+	background-color: rgb(12, 90, 123);
+	color: white;
+} */
+
+tbody tr th {
+	text-align: left;
+	font-weight: bold;
+	background-color: #f2f2f2;
+}
+
+thead tr th {
+	background-color: none;
+	text-align: center;
+	font-size: 23px;
+}
+
+th,
+td {
+	padding: 2px 10px 2px;
+	text-align: left;
+	border-bottom: 1px solid rgb(189, 189, 189);
 }

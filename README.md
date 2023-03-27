@@ -30,5 +30,5 @@ This project is a football stats app focused on MLS (Major League Soccer). It is
 
 
 ## Screenshot and Link to Deployed Application
-* Screenshot Coming Soon
+* [Screenshot](./assets/screenshot.png)
 * [Deployed Application](https://blackshane.github.io/super-team-project/)

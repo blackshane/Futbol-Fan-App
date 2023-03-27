@@ -8,7 +8,7 @@ function initMap(latitude, longitude) {
     var stadiumLocation = { lat: latitude, lng: longitude };
   
     const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 4,
+      zoom: 18,
       center: stadiumLocation,
     });
 

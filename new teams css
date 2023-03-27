@@ -1,0 +1,59 @@
+		body {
+			font-family: Arial, sans-serif;
+			background-color: rgb(175, 231, 253);
+		}
+
+		h1 {
+			text-align: center;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			color: darkslategray;
+		}
+
+		.team {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 10px;
+			border-bottom: 1px solid #ccc;
+		}
+
+		.team-name {
+			font-size: 20px;
+			color: darkslategray;
+		}
+
+		.favorite-btn {
+			padding: 5px;
+			background-color: #4CAF50;
+			border: none;
+			color: white;
+			text-align: center;
+			margin: auto;
+			display: flex;
+			display: grid;
+			font-size: 16px;
+			cursor: pointer;
+			border-radius: 5px;
+            
+		}
+
+		.favorite-btn:hover {
+			background-color: #3e8e41;
+		}
+
+        .view-info-btn {
+            padding: 5px;
+			background-color: darkslategray;
+			border: none;
+			color: white;
+			text-align: center;
+			font-size: 16px;
+			cursor: pointer;
+			border-radius: 5px;
+            
+        }
+
+        .view-info-btn:hover {
+			background-color: #3e8e41;
+		}

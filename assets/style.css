@@ -1,21 +1,32 @@
-img{
-    height: 50px;
-    width: 50px;
-}
-
 ul li{
     list-style-type: none;
+    list-style: none;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+a {
+    width: 100%;
+    text-decoration: none;
+    color: white;
 }
 
 button {
     padding: 5px;
-	background-color: #4CAF50;
+    background-color: rgb(11, 82, 113);
 	border: none;
 	color: white;
 	text-align: center;
 	font-size: 16px;
 	cursor: pointer;
 	border-radius: 5px;
+}
+
+button:hover {
+    background-color: rgb(76, 136, 162);
 }
 
 .disabled {
@@ -25,4 +36,46 @@ button {
 
 .disabled:hover {
     cursor: default;
+}
+
+main {
+    display: grid;
+    grid-template-rows: 1fr 3fr 2fr;
+}
+
+.header {
+    text-align: center;
+}
+
+.team-subcontainer {
+    display: flex;
+    justify-content: space-around;
+}
+
+.team-subcontainer img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.match-up-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.location-container {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: white;
+    border: 2px solid rgb(219, 219, 219);
+    width: 45%;
+    max-height: min-content;
+    margin: 0 auto;
+}
+
+.location-container img {
+    margin-top: 10px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
 }

@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>MLS Team Info</title>
-	<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../assets/page-structure.css"/>
+	<link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <aside class="vh-100">
@@ -29,51 +30,55 @@
             </ul>
         </nav>
     </aside>
-
-	<h1 id="team-name"></h1>
-    <img id="team-logo">
-
-    <table>
-        <thead>
-            <tr>
-                <th>Team Statistics</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th>Wins</th>
-                <th>Losses</th>
-                <th>Draws</th>
-                <th>Goals for</th>
-                <th>Goals Against</th>
-            </tr>
-            <tr>
-                <td id="wins"></td>
-                <td id="losses"></td>
-                <td id="draws"></td>
-                <td id="goals-for"></td>
-                <td id="goals-against"></td>
-            </tr>
-        </tbody>
-    </table>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Players</th>
-            </tr>
-        </thead>
-        <tbody id="player-stats-body">
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Goals</th>
-                <th>Assists</th>
-                <th>Saves</th>
-            </tr>
-        </tbody>
-    </table>
-
+    <main>
+        <h1 id="team-name"></h1>
+        <div id="logo-table-container">
+            <img id="team-logo">
+            <div id="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="5">Team Statistics</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Wins</th>
+                            <th>Losses</th>
+                            <th>Draws</th>
+                            <th>Goals for</th>
+                            <th>Goals Against</th>
+                        </tr>
+                        <tr>
+                            <td id="wins"></td>
+                            <td id="losses"></td>
+                            <td id="draws"></td>
+                            <td id="goals-for"></td>
+                            <td id="goals-against"></td>
+                        </tr>
+                    </tbody>
+                </table>
+        
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="5">Players</th>
+                        </tr>
+                    </thead>
+                    <tbody id="player-stats-body">
+                        <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Goals</th>
+                            <th>Assists</th>
+                            <th>Saves</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+	
 	<script src="./team-info.js"></script>
 </body>
 </html>

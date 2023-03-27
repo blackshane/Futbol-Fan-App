@@ -6,28 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Full-Screen Futbol Fan</title>
-    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/page-structure.css"/>
+    <link rel="stylesheet" href="assets/style.css"/>
 </head>
 
 <body>
-    <header>
-        <h1>Welcome to Full-Screen Fútbol Fan</h1>
-        <h2>Match Date: <span id="date-display"></span></h2>
-        <button id="league-match-btn">Next League Match</button>
-        <button id="fave-match-btn">Next Favorite Team Match</button>
-    </header>
-    <div class="match-up-container">
-        <div class="home-team-container">
-            <h2>Home:</h2>
-            <img id="home-team-logo" class="pic" src="assets/team-logo-one.jpg">
-            <h3 id="home-team-name"></h2>
-        </div>
-        <div class="away-team-container">
-            <h2>Away:</h2>
-            <img id="away-team-logo" class="pic" src="assets/team-logo-two.jpg">
-            <h3 id="away-team-name"></h2>
-        </div>
-    </div>
     <aside class="vh-100">
         <nav>
             <ul>
@@ -46,85 +29,102 @@
             </ul>
         </nav>
     </aside>
-    <div class="location-container">
-        <img id="stadium-pic" class="pic" src="assets/stadiuim-pic1.jpg">
-        <div class="stadium-info">
-            <h2 id="stadium-name">Stadium Name</h2>
-            <h3 id="stadium-location">Location, Country</h3>
-            <div class="weather-box">
-                <div>
-                    <p>Temperature:</p>
-                    <p id="temperature-display"></p>
+    <main>
+
+        <div class="header">
+            <h1>Welcome to Full-Screen Fútbol Fan</h1>
+            <h2>Match Date: <span id="date-display"></span></h2>
+            <button id="league-match-btn">Upcoming League Match</button>
+            <button id="fave-match-btn">Upcoming Favorite Team Match</button>
+        </div>
+
+        <div class="match-up-container">
+            <div class="home-team-container">
+                <h2>Home: <span id="home-team-name"></span></h2>
+                <div class="team-subcontainer">
+                    <img id="home-team-logo" class="pic">
+                    <div class="player-info player">
+                        <h2 class="key-players player" id="key-players-home">Key Players Home</h2>
+                        <div class="col-3">
+                            <ol class="player player-name">
+                                <li>Leading Goals
+                                    <ul>
+                                        <li>Name: <span id="home-lg-name"></span></li>
+                                        <li>POS: <span id="home-lg-pos"></span></li>
+                                        <li>Goals: <span id="home-lg-stat"></span></li>
+                                    </ul>
+                                </li>
+                                <li>Leading Assists
+                                    <ul>
+                                        <li>Name: <span id="home-la-name"></span></li>
+                                        <li>POS: <span id="home-la-pos"></span></li>
+                                        <li>Assists: <span id="home-la-stat"></span></li>
+                                    </ul>
+                                </li>
+                                <li>Goalkeeper
+                                    <ul>
+                                        <li>Name: <span id="home-gk-name"></span></li>
+                                        <li>POS: <span id="home-gk-pos"></span></li>
+                                        <li>Saves: <span id="home-gk-stat"></span></li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <p>Chance of Precipitation:</p>
-                    <p id="precip-display"></p>
-                </div>
-                <div>
-                    <p>Windspeed:</p>
-                    <p id="windspeed-display"></p>
+            </div>
+
+            <div class="away-team-container">
+                <h2>Away: <span id="away-team-name"></span></h2>
+                <div class="team-subcontainer">
+                    <img id="away-team-logo" class="pic">
+                    <div class="player-info player">
+                        <h2 class="key-players player" id="key-players-home">Key Players Away</h2>
+                        <div class="col-3">
+                            <ol class="player player-name">
+                                <li>Leading Goals
+                                    <ul>
+                                        <li>Name: <span id="away-lg-name"></span></li>
+                                        <li>POS: <span id="away-lg-pos"></span></li>
+                                        <li>Goals: <span id="away-lg-stat"></span></li>
+                                    </ul>
+                                </li>
+                                <li>Leading Assists
+                                    <ul>
+                                        <li>Name: <span id="away-la-name"></span></li>
+                                        <li>POS: <span id="away-la-pos"></span></li>
+                                        <li>Assists: <span id="away-la-stat"></span></li>
+                                    </ul>
+                                </li>
+                                <li>Goalkeeper
+                                    <ul>
+                                        <li>Name: <span id="away-gk-name"></span></li>
+                                        <li>POS: <span id="away-gk-pos"></span></li>
+                                        <li>Saves: <span id="away-gk-stat"></span></li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="player-info player">
-        <h2 class="key-players player" id="key-players-home">Key Players Home</h2>
-        <div class="col-3">
-            <ol class="player player-name">
-                <li>Leading Goals
-                    <ul>
-                        <li>Name: <span id="home-lg-name"></span></li>
-                        <li>POS: <span id="home-lg-pos"></span></li>
-                        <li>Goals: <span id="home-lg-stat"></span></li>
-                    </ul>
-                </li>
-                <li>Leading Assists
-                    <ul>
-                        <li>Name: <span id="home-la-name"></span></li>
-                        <li>POS: <span id="home-la-pos"></span></li>
-                        <li>Assists: <span id="home-la-stat"></span></li>
-                    </ul>
-                </li>
-                <li>Goalkeeper
-                    <ul>
-                        <li>Name: <span id="home-gk-name"></span></li>
-                        <li>POS: <span id="home-gk-pos"></span></li>
-                        <li>Saves: <span id="home-gk-stat"></span></li>
-                    </ul>
-                </li>
-            </ol>
 
+        <div class="location-container">
+            <img id="stadium-pic" class="pic">
+            <div class="stadium-info">
+                <h2 id="stadium-name"></h2>
+                <h3 id="stadium-location"></h3>
+                <div class="weather-box">
+                    <p>Temperature: <span id="temperature-display"></span></p>
+                    <p>Chance of Precipitation: <span id="precip-display"></span></p>
+                    <p>Windspeed: <span id="windspeed-display"></span></p>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="player-info player">
-        <h2 class="key-players player" id="key-players-home">Key Players Away</h2>
-        <div class="col-3">
-            <ol class="player player-name">
-                <li>Leading Goals
-                    <ul>
-                        <li>Name: <span id="away-lg-name"></span></li>
-                        <li>POS: <span id="away-lg-pos"></span></li>
-                        <li>Goals: <span id="away-lg-stat"></span></li>
-                    </ul>
-                </li>
-                <li>Leading Assists
-                    <ul>
-                        <li>Name: <span id="away-la-name"></span></li>
-                        <li>POS: <span id="away-la-pos"></span></li>
-                        <li>Assists: <span id="away-la-stat"></span></li>
-                    </ul>
-                </li>
-                <li>Goalkeeper
-                    <ul>
-                        <li>Name: <span id="away-gk-name"></span></li>
-                        <li>POS: <span id="away-gk-pos"></span></li>
-                        <li>Saves: <span id="away-gk-stat"></span></li>
-                    </ul>
-                </li>
-            </ol>
-
-        </div>
-    </div>
+        
+        
+    </main>
 
     <script src="assets/script.js"></script>
 </body>

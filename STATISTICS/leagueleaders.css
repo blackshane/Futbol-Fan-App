@@ -41,3 +41,8 @@ td {
   background-color: #cc0000;
   color: #fff;
 }
+
+#goals-assists-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

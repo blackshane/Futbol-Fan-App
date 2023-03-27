@@ -8,7 +8,7 @@ function initMap(latitude, longitude) {
     var stadiumLocation = { lat: latitude, lng: longitude };
   
     const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 18,
+      zoom: 16,
       center: stadiumLocation,
     });
 
@@ -33,7 +33,7 @@ function initMap(latitude, longitude) {
     Stadium('Saputo Stadium MON', 45.562295, -73.553032),
     Stadium('Red Bull Arena NYC', 40.736844, -74.150236),
     Stadium('Subaru Park PIL', 39.83281, -75.37848),
-    Stadium('PayPal Park SJ', 37.335480, -121.893028),
+    Stadium('PayPal Park SJ', 37.351116 , -121.924675 ),
     Stadium('BMO Park LA', 34.012605, -118.284559),
     Stadium('BMO Field TOR', 43.633223, -79.418562),
     Stadium('Q2 Stadium AUS', 30.387718 , -97.719353 ),
@@ -50,9 +50,9 @@ function initMap(latitude, longitude) {
     Stadium("Dick's Sporting Goods Park DEN", 39.805691 , -104.891891 ),
     Stadium('Toyota Stadium DAL', 33.154320, -96.835426),
     Stadium('Dignity Health Sports Park LA', 33.864204 , -118.261177 ),
-    Stadium('Allianz Field MIN', 44.9510554, -93.1607761 ),
-    Stadium('Gillette Stadium NE', 42.0878 , -71.2587),
-    Stadium('Exploria Stadium ORL', 28.541085, -81.389142),
+    Stadium('Allianz Field MIN', 44.953121 , -93.164711 ),
+    Stadium('Gillette Stadium NE', 42.0912800  , -71.2649 ),
+    Stadium('Exploria Stadium ORL', 28.541085, -81.388985 ),
     Stadium('America First Field SLC', 40.5699467494479, -111.8927205244),
   )
   
